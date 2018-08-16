@@ -920,14 +920,13 @@ export default class GoogleMap extends Component {
       this._onMapMouseMove(event);
       const currTime = new Date().getTime();
       if (currTime - this.dragTime_ > K_IDLE_TIMEOUT) {
+        this.markersDispatcher_.emit('kON_CLICK', event);
         if (this.mouse_) {
           this._onClick({
             ...this.mouse_,
             event,
           });
         }
-
-        this.markersDispatcher_.emit('kON_CLICK', event);
       }
     }
   };
