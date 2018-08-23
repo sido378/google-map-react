@@ -614,6 +614,8 @@ export default class GoogleMap extends Component {
                 distanceToMouse={this_.props.distanceToMouse}
                 getHoverDistance={this_._getHoverDistance}
                 dispatcher={this_.markersDispatcher_}
+                getMaps={this_._getMaps}
+                getMap={this_._getMap}
               />,
               div,
               // remove prerendered markers
@@ -1060,6 +1062,14 @@ export default class GoogleMap extends Component {
     this.googleMapDom_ = ref;
   };
 
+  _getMaps = () => {
+    return this.maps_;
+  };
+
+  _getMap = () => {
+    return this.map_;
+  };
+
   render() {
     const mapMarkerPrerender = !this.state.overlayCreated
       ? <GoogleMapMarkersPrerender
@@ -1073,6 +1083,8 @@ export default class GoogleMap extends Component {
           distanceToMouse={this.props.distanceToMouse}
           getHoverDistance={this._getHoverDistance}
           dispatcher={this.markersDispatcher_}
+          getMaps={this._getMaps}
+          getMap={this._getMap}
         />
       : null;
 

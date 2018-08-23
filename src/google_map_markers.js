@@ -27,6 +27,8 @@ const style = {
 export default class GoogleMapMarkers extends Component {
   /* eslint-disable react/forbid-prop-types */
   static propTypes = {
+    getMap: PropTypes.func,
+    getMaps: PropTypes.func,
     geoService: PropTypes.any,
     style: PropTypes.any,
     distanceToMouse: PropTypes.func,
@@ -322,6 +324,8 @@ export default class GoogleMapMarkers extends Component {
               $geoService: this.props.geoService,
               $onMouseAllow: this._onMouseAllow,
               $prerender: this.props.prerender,
+              $getMaps: this.props.getMaps,
+              $getMap: this.props.getMap,
             })}
           </div>
         );
